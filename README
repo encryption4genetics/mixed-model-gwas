@@ -1,0 +1,14 @@
+# mixed.model.gwas
+
+Run a MM Gwas.
+
+## INSTALL
+
+    git clone git@github.com:encryption4genetics/mixed-model-gwas.git
+    cd mixed-model-gwas
+    R CMD INSTALL .
+
+Fire up R
+
+    R
+    library(mixed.model.gwas)
