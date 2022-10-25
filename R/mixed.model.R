@@ -87,7 +87,7 @@ mixed.model.gwas <- function( y, genotypes, kinship=NULL, nperm=0 ) {
   mm.gwas.cor =  cor( mm.transformed.y, mm.transformed.g )
   n = length(mm.transformed.y)
   df = n-2
-  t.stat = mm.gwas.cor*sqrt((df-2)/(1.0e-10+sqrt(1-mm.gwas.cor*mm.gwas.cor)))
+  t.stat = mm.gwas.cor*sqrt(df)/(1.0e-10+sqrt(1-mm.gwas.cor*mm.gwas.cor))
   pval = 2*pt( abs(t.stat), df, lower.tail =FALSE )
 
   if ( nperm > 0 ) {
@@ -97,7 +97,7 @@ mixed.model.gwas <- function( y, genotypes, kinship=NULL, nperm=0 ) {
     }
 
     mm.gwas.cor.perm = cor( perms, mm.transformed.g )
-    t.stat.perm = mm.gwas.cor.perm*sqrt((df-2)/(1.0e-10+sqrt(1-mm.gwas.cor.perm*mm.gwas.cor.perm)))
+    t.stat.perm = mm.gwas.cor.perm*sqrt(df)/(1.0e-10+sqrt(1-mm.gwas.cor.perm*mm.gwas.cor.perm))
     pval.perm = 2*pt( abs(t.stat.perm), df, lower.tail=FALSE)
     pval.perm.empirical = sapply( 1:ncol(pval.perm), function( i, pval.perm, pval ) { mean(pval[i] > pval.perm[,i]) }, pval.perm, pval )
     min.pval = apply(pval.perm,2,min)
