@@ -64,7 +64,7 @@ mixed.model.gwas <- function( y, genotypes, kinship=NULL, nperm=0 ) {
     }
     return(g)
   })
-
+  rownames(genos) = rownames(genotypes)
 
   if ( is.null(kinship)) {
     kinship = make.kinship( genos )

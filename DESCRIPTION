@@ -1,7 +1,7 @@
 Package: mixed.model.gwas
 Type: Package
 Title: Mixed Model Genome Wide Association Study
-Version: 1.2
+Version: 1.3
 Author: Richard Mott
 Maintainer: Richard Mott <r.mott@ucl.ac.uk>
 Description: Basic Functions to perform a mixed-model GWAS.
